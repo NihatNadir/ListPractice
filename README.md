@@ -1,7 +1,7 @@
 # ListPractice TR || ENG
 
-listName.Add("....");
-listName.Contains("....");
+## listName.Add("....");
+## listName.Contains("....");
 
 - Bu Pratik'te ziyaretçilerin isimlerini eklediğimiz bir liste oluşturdum.
 - Eğer kullanıcının eklemek istediği ziyaretçi listede varsa hata veriyor listeye ekleme yapmıyor.

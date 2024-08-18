@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 namespace ListPractice
 {
     class Program
     {
         static void Main(string[] args) 
         {
-            int sayac = 1;
-            List<string> party = new List<string>();
+            int sayac = 1; // Listedeki sıra için değişken tanımlama
+            List<string> party = new List<string>(); // Listeye eleman ekleme
             party.Add("Bülent Ersoy");
             party.Add("Ajda Pekkan");
             party.Add("Ebru Gündeş");
@@ -19,22 +19,28 @@ namespace ListPractice
             start:
             Console.WriteLine("Listeye ziyaretçi eklemek için '1' basın.\nDavetliler listesini görüntülemek için '2' basın.");
             string input = Console.ReadLine() ?? "";
-            if (input == "1")
+            if (input == "1") // Kullanıcı 1 girerse
             {
                 name:
                 Console.WriteLine("İsmi giriniz.");
                 string invite = Console.ReadLine() ?? "";
-                party.Add(invite);
-                Console.WriteLine("İsim davetliler listesine eklendi.");
-                Console.WriteLine("Tekrar ziyaretçi eklemek istiyorsan '1' Davetliler listesini görüntülemek istiyorsan '2' basın");
+                if (!party.Contains(invite)) // Eğer kullanıcının girdiği değer listede yoksa davetliler listesine ekleniyor 
+                {
+                    party.Add(invite);
+                    Console.WriteLine("İsim davetliler listesine eklendi.");
+                }
+                else // Eğer isim daha önce listede varsa hata ile karşılaşılıyor.
+                    Console.WriteLine("İsim daha önce listeye eklenmiş");
+
+
+                Console.WriteLine("Tekrar ziyaretçi eklemek istiyorsan '1' Davetliler listesini görüntülemek istiyorsan '2' basın"); // goto ile isim alma kısmına dönüyor.
                 input = Console.ReadLine() ?? "";
                 if (input == "1")                              
-                    goto name;
-                Console.WriteLine(input);
+                    goto name;             
 
             }
 
-            if (input == "2")
+            if (input == "2") // Davetliler listesinin son hali konsol ekranına yazdırılıyor.
             {
                 Console.WriteLine("\n** Davetliler **");
                 foreach (string part in party)
@@ -47,7 +53,7 @@ namespace ListPractice
             else
             {
                 Console.WriteLine("Yanlış giriş yaptınız.");
-                goto start;
+                goto start; // goto ile başa dönüyor.
             }
         }
     }
